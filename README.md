@@ -17,8 +17,10 @@ pass.
 
 # Usage
 
-    cd h264_ir_orig && ./run_sys_aw.sh
+    	cd h264_ir_orig
+
+	 ./run_sys_aw.sh
 
 # Author
 
-Georgios Zacharopoulos georgios.zacharopoulos@usi.ch Date: April, 2017
+Georgios Zacharopoulos georgios@seas.harvard.edu Date: May, 2020
