@@ -13,7 +13,7 @@ In order to provide the correct path to your LLVM source tree.
 Then you can recompile it using make and a new SO should be created in order to load the BBFreqInfo
 pass.
 
-    cd "path/to/llvm/build" && make
+	cd "path/to/llvm/build" && make
 
 # Usage
 
