@@ -17,9 +17,9 @@ pass.
 
 # Usage
 
-    	cd h264_ir_orig
+	cd h264_ir_orig
 
-	 ./run_sys_aw.sh
+	./run_sys_aw.sh
 
 # Author
 
