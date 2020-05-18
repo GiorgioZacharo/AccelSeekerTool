@@ -1,16 +1,18 @@
-############### This is the System Aware RegionSeeker+ Analysis on the whole app ##############
+############### This is the System Aware AccelSeeker Analysis on the whole app ##############
 #
 #
-#
-#    Georgios Zacharopoulos <georgios.zacharopoulos@usi.ch>
-#    Date: July, 2016
-#    Universita' della Svizzera italiana (USI Lugano)
+#    Georgios Zacharopoulos <georgios@seas.harvard.edu>
+#    Date: January, 2020
+#    Harvard University / Universita' della Svizzera italiana (USI Lugano)
 ############################################################################################### 
 
 #!/bin/bash
 
-IRDIR=IR
+# LLVM build directory - Edit this line.
 LLVM_BUILD=~georgios/llvm-8.0.0//build
+
+TOP_LEVEL=6
+IRDIR=IR
 
 #cd $IRDIR
 #~georgios/llvm-8.0.0//build/bin/llvm-link -S  *.ir -o ../h264.ir
@@ -23,13 +25,15 @@ $LLVM_BUILD/bin/opt -load $LLVM_BUILD/lib/AccelSeekerIO.so -AccelSeekerIO -stats
 mkdir gvFiles; mv *.gv gvFiles/.
 
 
-
-for ((i=0; i <= 6 ; i++)) ; do
+# Collects SW, HW and AREA estimation bottom up.
+for ((i=0; i <= $TOP_LEVEL ; i++)) ; do
 	echo "$i"
  printf "$i" > level.txt
 
 $LLVM_BUILD/bin/opt -load $LLVM_BUILD/lib/AccelSeeker.so -AccelSeeker -stats    > /dev/null  h264.ir
 done
+
+cp LA_$TOP_LEVEL.txt LA.txt; mkdir analysis_data; mv SW_*.txt HW_*.txt AREA_*.txt LA_*.txt analysis_data/.  
 
 exit 0;
 
