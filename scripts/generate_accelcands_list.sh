@@ -8,7 +8,7 @@ printf "Compute Merit/Cost File - MC.txt"
 
 printf "Generate Overlapping Rule - FCI_CROPPED_OVERLAP_RULE.txt"
 ../scripts/prune_fci_files.sh
-python ../scripts/generate_overlapping_rule.py 
+python generate_overlapping_rule.py 
 
 printf "Merge MC.txt and FCI_CROPPED_OVERLAP_RULE.txt"
 printf "Generate AccelSeeker Candidates list with Merit/Cost and Call Function Indexes - MCI.txt"
